@@ -196,6 +196,13 @@ SOURCES += $$PWD/CameraImageWrapper.cpp \
     $$PWD/zxing/qrcode/QRFormatInformation.cpp \
     $$PWD/zxing/qrcode/QRErrorCorrectionLevel.cpp
 
+OTHER_FILES += \
+    $$PWD/qmldir \
+    $$PWD/plugins.qmltypes
+
+MOC_DIR = $$PWD/.moc
+OBJECTS_DIR = $$PWD/.obj
+
 DEFINES += NOFMAXL
 
 target.path = $$[QT_INSTALL_QML]/$$PLUGIN_IMPORT_PATH
