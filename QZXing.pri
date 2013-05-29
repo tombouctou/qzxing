@@ -1,6 +1,7 @@
-QT       += core gui
-
-greaterThan(QT_VERSION, 4.7): QT += declarative
+# QT       += core gui
+TEMPLATE = lib
+CONFIG += qt plugin hide_symbols
+QT += qml quick widgets
 
 DEFINES += QZXING_LIBRARY \
          ZXING_ICONV_CONST
@@ -191,30 +192,12 @@ SOURCES += $$PWD/CameraImageWrapper.cpp \
     $$PWD/zxing/qrcode/QRFormatInformation.cpp \
     $$PWD/zxing/qrcode/QRErrorCorrectionLevel.cpp
 
-symbian {
-    TARGET.UID3 = 0xE618743C
-    TARGET.EPOCALLOWDLLDATA = 1
+DEFINES += NOFMAXL
 
-    #TARGET.CAPABILITY = All -TCB -AllFiles -DRM
-    TARGET.CAPABILITY += NetworkServices \
-        ReadUserData \
-        WriteUserData \
-        LocalServices \
-        UserEnvironment \
-        Location
-}
+target.path = $$[QT_INSTALL_QML]/$$PLUGIN_IMPORT_PATH
+INSTALLS += target
 
-unix:!symbian {
-    maemo5 {
-        target.path = /opt/usr/lib
-    } else {
-        target.path = /usr/lib
-    }
-
-    DEFINES += NOFMAXL
-    INSTALLS += target
-}
-
-win32{
-    DEFINES += NO_ICONV
-}
+qmldir.files += $$PWD/qmldir \
+                $$PWD/plugins.qmltypes
+qmldir.path  += $$[QT_INSTALL_QML]/$$PLUGIN_IMPORT_PATH
+INSTALLS += qmldir
