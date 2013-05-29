@@ -8,6 +8,9 @@ DEFINES += QZXING_LIBRARY \
 		 
 INCLUDEPATH  += $$PWD
 
+TARGET = QZXing
+PLUGIN_IMPORT_PATH = QZXing
+
 HEADERS += $$PWD/QZXing_global.h \
     $$PWD/CameraImageWrapper.h \
     $$PWD/imagehandler.h \

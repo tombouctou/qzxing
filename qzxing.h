@@ -23,6 +23,7 @@ class QZXing : public QQmlExtensionPlugin
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
     Q_ENUMS(DecoderFormat)
+
 public:
     enum DecoderFormat {
                     DecoderFormat_None = 0,
