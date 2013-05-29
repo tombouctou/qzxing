@@ -10,7 +10,7 @@
 
 using namespace zxing;
 
-QZXing::QZXing()
+QZXing::QZXing(QObject *parent) : QObject(parent)
 {
     decoder = new MultiFormatReader();
     setDecoder(DecoderFormat_QR_CODE |
@@ -109,15 +109,5 @@ QString QZXing::decodeSubImageQML(QObject* item,
     QImage img = ((ImageHandler*)imageHandler)->extractQImage(item, offsetX, offsetY, width, height);
 
     return decodeImage(img);
-}
-
-void QZXing::initializeEngine(QQmlEngine *engine, const char *uri)
-{
-    QQmlExtensionPlugin::initializeEngine(engine, uri);
-}
-
-void QZXing::registerTypes(const char *uri)
-{
-    qmlRegisterType<QZXing>(uri, 1, 2, "QZXing");
 }
 

@@ -5,10 +5,6 @@
 #include <QObject>
 #include <QImage>
 
-#include <QtQml>
-#include <QtQml/QQmlEngine>
-#include <QtQml/QQmlExtensionPlugin>
-
 /**
   * A class containing a very very small subset of the ZXing library.
   * Created for ease of use.
@@ -18,10 +14,9 @@
   *
   * Regarding DecoderFormat, by default all of those are enabled (except DataMatrix will is still not supported)
   */
-class QZXing : public QQmlExtensionPlugin
+class QZXing : public QObject
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
     Q_ENUMS(DecoderFormat)
 
 public:
@@ -41,10 +36,7 @@ public:
     typedef unsigned int DecoderFormatType;
 
 public:
-    QZXing();
-
-    void registerTypes(const char *uri);
-    void initializeEngine(QQmlEngine *engine, const char *uri);
+    QZXing(QObject *parent = NULL);
 
     /**
       * Set the enabled decoders.

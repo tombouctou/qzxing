@@ -1,4 +1,3 @@
-# QT       += core gui
 TEMPLATE = lib
 CONFIG += qt plugin hide_symbols
 QT += qml quick widgets
@@ -15,6 +14,7 @@ HEADERS += $$PWD/QZXing_global.h \
     $$PWD/CameraImageWrapper.h \
     $$PWD/imagehandler.h \
     $$PWD/qzxing.h \
+    $$PWD/plugin.h \
     $$PWD/zxing/ResultPointCallback.h \
     $$PWD/zxing/ResultPoint.h \
     $$PWD/zxing/Result.h \
@@ -107,6 +107,7 @@ HEADERS += $$PWD/QZXing_global.h \
 SOURCES += $$PWD/CameraImageWrapper.cpp \
     $$PWD/qzxing.cpp \
     $$PWD/imagehandler.cpp \
+    $$PWD/plugin.cpp \
     $$PWD/zxing/ResultPointCallback.cpp \
     $$PWD/zxing/ResultPoint.cpp \
     $$PWD/zxing/Result.cpp \
