@@ -1,5 +1,5 @@
 #include <QtQml>
-#include "plugin.h"
+#include "qzxing_plugin.h"
 #include "qzxing.h"
 
 void QZXingPlugin::initializeEngine(QQmlEngine *engine, const char *uri)

@@ -1,7 +1,7 @@
 #ifndef QZXING_H
 #define QZXING_H
 
-#include "QZXing_global.h"
+#include "qzxing_global.h"
 #include <QObject>
 #include <QImage>
 
@@ -55,13 +55,13 @@ public slots:
     /**
       * The decoding function accessible from QML
       */
-    QString decodeImageQML(QObject *item);
+    QString decodeImageQML(const QUrl &imageUrl);
 
     /**
       * The decoding function accessible from QML. Able to set the decoding
       * of a portion of the image.
       */
-    QString decodeSubImageQML(QObject* item,
+    QString decodeSubImageQML(const QUrl &imageUrl,
                               const double offsetX = 0 , const double offsetY = 0,
                               const double width = 0, const double height = 0);
 
@@ -73,7 +73,6 @@ signals:
 private:
     void* decoder;
     DecoderFormatType supportedFormats;
-    QObject* imageHandler;
 };
 
 #endif // QZXING_H

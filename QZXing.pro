@@ -12,9 +12,9 @@ PLUGIN_IMPORT_PATH = QZXing
 
 HEADERS += $$PWD/QZXing_global.h \
     $$PWD/CameraImageWrapper.h \
-    $$PWD/imagehandler.h \
     $$PWD/qzxing.h \
-    $$PWD/plugin.h \
+    $$PWD/qzxing_plugin.h \
+    $$PWD/qzxing_global.h \
     $$PWD/zxing/ResultPointCallback.h \
     $$PWD/zxing/ResultPoint.h \
     $$PWD/zxing/Result.h \
@@ -102,12 +102,12 @@ HEADERS += $$PWD/QZXing_global.h \
     $$PWD/zxing/multi/ByQuadrantReader.h \
     $$PWD/zxing/multi/qrcode/QRCodeMultiReader.h \
     $$PWD/zxing/multi/qrcode/detector/MultiFinderPatternFinder.h \
-    $$PWD/zxing/multi/qrcode/detector/MultiDetector.h
+    $$PWD/zxing/multi/qrcode/detector/MultiDetector.h \
+    qzxing_plugin.h
 
 SOURCES += $$PWD/CameraImageWrapper.cpp \
     $$PWD/qzxing.cpp \
-    $$PWD/imagehandler.cpp \
-    $$PWD/plugin.cpp \
+    $$PWD/qzxing_plugin.cpp \
     $$PWD/zxing/ResultPointCallback.cpp \
     $$PWD/zxing/ResultPoint.cpp \
     $$PWD/zxing/Result.cpp \

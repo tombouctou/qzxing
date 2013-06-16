@@ -6,7 +6,6 @@
 #include <zxing/MultiFormatReader.h>
 #include <zxing/DecodeHints.h>
 #include "CameraImageWrapper.h"
-#include "imagehandler.h"
 
 using namespace zxing;
 
@@ -23,7 +22,6 @@ QZXing::QZXing(QObject *parent) : QObject(parent)
                DecoderFormat_CODE_39 |
                DecoderFormat_ITF |
                DecoderFormat_Aztec);
-    imageHandler = new ImageHandler();
 }
 
 void QZXing::setDecoder(DecoderFormatType hint)
@@ -65,49 +63,61 @@ void QZXing::setDecoder(DecoderFormatType hint)
 
 QString QZXing::decodeImage(QImage image)
 {
-    Ref<Result> res;
+    Ref<Result> result;
     emit decodingStarted();
 
-    try{
-        Ref<LuminanceSource> imageRef(new CameraImageWrapper(image));
-        GlobalHistogramBinarizer* binz = new GlobalHistogramBinarizer(imageRef);
+    try {
+        Ref<LuminanceSource> source(new CameraImageWrapper(image));
 
-        Ref<Binarizer> bz (binz);
-        BinaryBitmap* bb = new BinaryBitmap(bz);
+        Ref<Binarizer> binarizer;
+        binarizer = new GlobalHistogramBinarizer(source);
 
-        Ref<BinaryBitmap> ref(bb);
+        Ref<BinaryBitmap> binary(new BinaryBitmap(binarizer));
 
-        res = ((MultiFormatReader*)decoder)->decode(ref, DecodeHints((int)supportedFormats));
+        DecodeHints hints((int)supportedFormats);
 
-        QString string = QString(res->getText()->getText().c_str());
+        result = ((MultiFormatReader*)decoder)->decode(binary, hints);
+
+        QString string = QString(result->getText()->getText().c_str());
         emit tagFound(string);
         emit decodingFinished(true);
         return string;
     }
     catch(zxing::Exception& e)
     {
+       qDebug() << "[decodeImage()] Exception:" << e.what();
        emit decodingFinished(false);
        return "";
     }
 }
 
-QString QZXing::decodeImageQML(QObject *item)
+QString QZXing::decodeImageQML(const QUrl &imageUrl)
 {
-    return decodeSubImageQML(item);
+    return decodeSubImageQML(imageUrl);
 }
 
-QString QZXing::decodeSubImageQML(QObject* item,
+QString QZXing::decodeSubImageQML(const QUrl &imageUrl,
                                   const double offsetX, const double offsetY,
                                   const double width, const double height)
 {
-    if(item  == NULL)
-    {
+
+    QString imagePath = imageUrl.path();
+    imagePath = imagePath.trimmed();
+    QFile file(imagePath);
+
+    if (!file.exists()) {
+        qDebug() << "[decodeSubImageQML()] The file" << file.fileName() << "does not exist.";
         emit decodingFinished(false);
         return "";
     }
 
-    QImage img = ((ImageHandler*)imageHandler)->extractQImage(item, offsetX, offsetY, width, height);
+    QImage img(imageUrl.path());
+
+    if(!(offsetX == 0 && offsetY == 0 && width == 0 && height == 0)) {
+        img = img.copy(offsetX, offsetY, width, height);
+    }
 
     return decodeImage(img);
+
 }
 

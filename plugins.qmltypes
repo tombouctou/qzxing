@@ -9,7 +9,7 @@ Module {
     Component {
         name: "QZXing"
         prototype: "QObject"
-        exports: ["QZXing/QZXing 1.2"]
+        exports: ["QZXing/QZXing 1.3"]
         Enum {
             name: "DecoderFormat"
             values: {

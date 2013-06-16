@@ -1,3 +1,21 @@
+qzxing-plugin (1.3ubuntu1~13.04ubuntu2) raring; urgency=low
+
+  * Implemented decodeSubImageQML 
+
+ -- David Planella <david.planella@ubuntu.com>  Sun, 16 Jun 2013 13:24:34 +0200
+
+qzxing-plugin (1.3ubuntu1~13.04ubuntu1) raring; urgency=low
+
+  * Cleaned up code
+
+ -- David Planella <david.planella@ubuntu.com>  Sun, 16 Jun 2013 02:09:33 +0200
+
+qzxing-plugin (1.3ubuntu1~13.04) raring; urgency=low
+
+  * Bumped version to upload PPA
+
+ -- David Planella <david.planella@ubuntu.com>  Fri, 31 May 2013 11:55:18 +0200
+
 qzxing-plugin (1.3) raring; urgency=low
 
   * Initial release

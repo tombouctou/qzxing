@@ -5,3 +5,4 @@ debian/files
 debian/qtdeclarative5-qzxing-plugin
 debian/qtdeclarative5-qzxing-plugin.debhelper.log
 debian/qtdeclarative5-qzxing-plugin.substvars
+QZXing.pro.user
