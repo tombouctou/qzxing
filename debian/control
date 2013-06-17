@@ -14,7 +14,7 @@ Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends},
-Description: QZXing QML plugin - qml terminal plugin 
- QZXing QR code decoder
+Description: QZXing QtQuick 2 plugin
+ Port to QtQuick 2 of the ZXing 1D/2D barcode image decoder
 
 
