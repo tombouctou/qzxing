@@ -1,10 +1,10 @@
-qzxing-plugin (1.3ubuntu1~13.04ubuntu2) raring; urgency=low
+qzxing-plugin (1.3ubuntu3~13.04) raring; urgency=low
 
   * Implemented decodeSubImageQML 
 
  -- David Planella <david.planella@ubuntu.com>  Sun, 16 Jun 2013 13:24:34 +0200
 
-qzxing-plugin (1.3ubuntu1~13.04ubuntu1) raring; urgency=low
+qzxing-plugin (1.3ubuntu2~13.04) raring; urgency=low
 
   * Cleaned up code
 
