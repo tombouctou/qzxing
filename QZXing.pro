@@ -5,7 +5,7 @@ CONFIG += qt plugin
 
 TARGET = $$qtLibraryTarget($$TARGET)
 # This defines where the plugin will be installed relative to the
-# QML installatiion directory and can be of the form com.mycompany.qmlcomponents
+# QML installation directory and can be of the form com.mycompany.qmlcomponents
 uri = QZXing
 
 DEFINES += \
@@ -214,10 +214,14 @@ OTHER_FILES += \
 MOC_DIR = .moc
 OBJECTS_DIR = .obj
 
-qmldir.files = qmldir
 unix {
     installPath = $$[QT_INSTALL_QML]/$$replace(uri, \\., /)
+    qmldir.files = qmldir
     qmldir.path = $$installPath
+    plugins_qmltypes.path = $$installPath
+    plugins_qmltypes.extra = $$[QT_INSTALL_BINS]/qmlplugindump -notrelocatable $$replace(uri, \\., /) 1.3 ../ > $$PWD/plugins.qmltypes
+    plugins_qmltypes.files = plugins.qmltypes
     target.path = $$installPath
-    INSTALLS += target qmldir
+    QMAKE_CLEAN	+= plugins.qmltypes
+    INSTALLS += target qmldir plugins_qmltypes
 }
