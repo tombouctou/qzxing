@@ -10,5 +10,8 @@ void QZXingPlugin::initializeEngine(QQmlEngine *engine, const char *uri)
 void QZXingPlugin::registerTypes(const char *uri)
 {
     // @uri QZXing
-    qmlRegisterType<QZXing>(uri, 1, 3, "QZXing");
+    qmlRegisterType<QZXing>(uri,
+                            QZXING_PLUGIN_VERSION_MAJOR,
+                            QZXING_PLUGIN_VERSION_MINOR,
+                            QZXING_PLUGIN_QML_NAME);
 }

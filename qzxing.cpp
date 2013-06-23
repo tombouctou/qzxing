@@ -1,5 +1,6 @@
 #include "qzxing.h"
 
+#include <QtCore>
 #include <zxing/common/GlobalHistogramBinarizer.h>
 #include <zxing/Binarizer.h>
 #include <zxing/BinaryBitmap.h>

@@ -1,8 +1,12 @@
-#ifndef PLUGIN_H
-#define PLUGIN_H
+#ifndef QZXING_PLUGIN_H
+#define QZXING_PLUGIN_H
 
-#include <QtQml/QQmlEngine>
-#include <QtQml/QQmlExtensionPlugin>
+#define QZXING_PLUGIN_VERSION_MAJOR 1
+#define QZXING_PLUGIN_VERSION_MINOR 3
+#define QZXING_PLUGIN_QML_NAME "QZXing"
+
+#include <QQmlEngine>
+#include <QQmlExtensionPlugin>
 
 class QZXingPlugin : public QQmlExtensionPlugin
 {
@@ -14,4 +18,4 @@ public:
     void initializeEngine(QQmlEngine *engine, const char *uri);
 };
 
-#endif // PLUGIN_H
+#endif // QZXING_PLUGIN_H

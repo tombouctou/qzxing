@@ -1,16 +1,26 @@
 TEMPLATE = lib
-CONFIG += qt plugin hide_symbols
-QT += qml quick widgets
+CONFIG += \
+    qt \
+    plugin\
+    hide_symbols
 
-DEFINES += QZXING_LIBRARY \
-         ZXING_ICONV_CONST
-		 
-INCLUDEPATH  += $$PWD
+QT += \
+    qml \
+    quick \
+    widgets
+
+DEFINES += \
+    QZXING_LIBRARY \
+    ZXING_ICONV_CONST \
+    NOFMAXL
+
+INCLUDEPATH += $$PWD
 
 TARGET = QZXing
 PLUGIN_IMPORT_PATH = QZXing
 
-HEADERS += $$PWD/QZXing_global.h \
+HEADERS += \
+    $$PWD/QZXing_global.h \
     $$PWD/CameraImageWrapper.h \
     $$PWD/qzxing.h \
     $$PWD/qzxing_plugin.h \
@@ -105,7 +115,8 @@ HEADERS += $$PWD/QZXing_global.h \
     $$PWD/zxing/multi/qrcode/detector/MultiDetector.h \
     qzxing_plugin.h
 
-SOURCES += $$PWD/CameraImageWrapper.cpp \
+SOURCES += \
+    $$PWD/CameraImageWrapper.cpp \
     $$PWD/qzxing.cpp \
     $$PWD/qzxing_plugin.cpp \
     $$PWD/zxing/ResultPointCallback.cpp \
@@ -203,12 +214,12 @@ OTHER_FILES += \
 MOC_DIR = $$PWD/.moc
 OBJECTS_DIR = $$PWD/.obj
 
-DEFINES += NOFMAXL
-
 target.path = $$[QT_INSTALL_QML]/$$PLUGIN_IMPORT_PATH
-INSTALLS += target
 
 qmldir.files += $$PWD/qmldir \
                 $$PWD/plugins.qmltypes
 qmldir.path  += $$[QT_INSTALL_QML]/$$PLUGIN_IMPORT_PATH
-INSTALLS += qmldir
+
+INSTALLS += \
+    target
+    qmldir
