@@ -8,10 +8,15 @@ TARGET = $$qtLibraryTarget($$TARGET)
 # QML installation directory and can be of the form com.mycompany.qmlcomponents
 uri = QZXing
 
+QZXING_PLUGIN_VERSION_MAJOR = 1
+QZXING_PLUGIN_VERSION_MINOR = 3
+
 DEFINES += \
     QZXING_LIBRARY \
     ZXING_ICONV_CONST \
-    NOFMAXL
+    NOFMAXL \
+    "QZXING_PLUGIN_VERSION_MAJOR=$$QZXING_PLUGIN_VERSION_MAJOR" \
+    "QZXING_PLUGIN_VERSION_MINOR=$$QZXING_PLUGIN_VERSION_MINOR"
 
 HEADERS += \
     CameraImageWrapper.h \
@@ -219,7 +224,7 @@ unix {
     qmldir.files = qmldir
     qmldir.path = $$installPath
     plugins_qmltypes.path = $$installPath
-    plugins_qmltypes.extra = $$[QT_INSTALL_BINS]/qmlplugindump -notrelocatable $$replace(uri, \\., /) 1.3 ../ > $$PWD/plugins.qmltypes
+    plugins_qmltypes.extra = $$[QT_INSTALL_BINS]/qmlplugindump -notrelocatable $$replace(uri, \\., /) $$QZXING_PLUGIN_VERSION_MAJOR.$$QZXING_PLUGIN_VERSION_MINOR ../ > $$PWD/plugins.qmltypes
     plugins_qmltypes.files = plugins.qmltypes
     target.path = $$installPath
     QMAKE_CLEAN	+= plugins.qmltypes

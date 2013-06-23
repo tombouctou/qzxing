@@ -1,8 +1,6 @@
 #ifndef QZXING_PLUGIN_H
 #define QZXING_PLUGIN_H
 
-#define QZXING_PLUGIN_VERSION_MAJOR 1
-#define QZXING_PLUGIN_VERSION_MINOR 3
 #define QZXING_PLUGIN_QML_NAME "QZXing"
 
 #include <QQmlEngine>
