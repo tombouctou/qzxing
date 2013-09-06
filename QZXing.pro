@@ -224,7 +224,7 @@ unix {
     qmldir.files = qmldir
     qmldir.path = $$installPath
     plugins_qmltypes.path = $$installPath
-    plugins_qmltypes.extra = $$[QT_INSTALL_BINS]/qmlplugindump -notrelocatable $$replace(uri, \\., /) $$QZXING_PLUGIN_VERSION_MAJOR.$$QZXING_PLUGIN_VERSION_MINOR ../ > $$PWD/plugins.qmltypes
+    plugins_qmltypes.extra = $$[QT_INSTALL_BINS]/qmlplugindump -notrelocatable $$replace(uri, \\., /) $${QZXING_PLUGIN_VERSION_MAJOR}.$${QZXING_PLUGIN_VERSION_MINOR} ../ > $$PWD/plugins.qmltypes
     plugins_qmltypes.files = plugins.qmltypes
     target.path = $$installPath
     QMAKE_CLEAN	+= plugins.qmltypes
