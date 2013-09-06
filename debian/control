@@ -5,6 +5,7 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Build-Depends: debhelper (>= 9.0.0),
                qtbase5-dev,
                qtdeclarative5-dev,
+               qtdeclarative5-dev-tools,
                qt5-default,
 Standards-Version: 3.9.4
 Homepage: https://projects.developer.nokia.com/QZXing

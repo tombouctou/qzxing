@@ -1,3 +1,15 @@
+qzxing-plugin (1.3ubuntu5~13.04) raring; urgency=low
+
+  * Added build dependency on qtdeclarative5-dev-tools
+
+ -- David Planella <david.planella@ubuntu.com>  Fri, 06 Sep 2013 09:35:10 +0200
+
+qzxing-plugin (1.3ubuntu4~13.04) raring; urgency=low
+
+  * Tidied up build system
+
+ -- David Planella <david.planella@ubuntu.com>  Sun, 23 Jun 2013 17:35:22 +0200
+
 qzxing-plugin (1.3ubuntu3~13.04) raring; urgency=low
 
   * Implemented decodeSubImageQML 
