@@ -7,6 +7,7 @@ Build-Depends: debhelper (>= 9.0.0),
                qtdeclarative5-dev,
                qtdeclarative5-dev-tools,
                qt5-default,
+               qtdeclarative5-qtquick2-plugin
 Standards-Version: 3.9.4
 Homepage: https://projects.developer.nokia.com/QZXing
 
@@ -14,7 +15,7 @@ Package: qtdeclarative5-qzxing-plugin
 Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends}, ${shlibs:Depends},
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: QZXing QtQuick 2 plugin
  Port to QtQuick 2 of the ZXing 1D/2D barcode image decoder
 

@@ -1,3 +1,10 @@
+qzxing-plugin (1.3ubuntu6~13.04) raring; urgency=low
+
+  * Fixed dependencies in the control file
+  * Fixed plugins.qmltypes file build
+
+ -- David Planella <david.planella@ubuntu.com>  Sat, 07 Sep 2013 12:51:38 +0200
+
 qzxing-plugin (1.3ubuntu5~13.04) raring; urgency=low
 
   * Added build dependency on qtdeclarative5-dev-tools
